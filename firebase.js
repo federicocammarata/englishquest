@@ -8,12 +8,12 @@
 // ─────────────────────────────────────────────────────────
 
 const firebaseConfig = {
-  apiKey:            "REPLACE_WITH_YOUR_API_KEY",
-  authDomain:        "REPLACE_WITH_YOUR_AUTH_DOMAIN",
-  projectId:         "REPLACE_WITH_YOUR_PROJECT_ID",
-  storageBucket:     "REPLACE_WITH_YOUR_STORAGE_BUCKET",
-  messagingSenderId: "REPLACE_WITH_YOUR_MESSAGING_SENDER_ID",
-  appId:             "REPLACE_WITH_YOUR_APP_ID",
+  apiKey:            "AIzaSyDj6nTLsDvVVXU7OmjjAOSeaGWUMlTg4G8",
+  authDomain:        "englishquest-4cd60.firebaseapp.com",
+  projectId:         "englishquest-4cd60",
+  storageBucket:     "englishquest-4cd60.firebasestorage.app",
+  messagingSenderId: "656472398542",
+  appId:             "1:656472398542:web:a975a8ffd5149a6b9dce9f",
 };
 
 // ── Init ─────────────────────────────────────────────────
