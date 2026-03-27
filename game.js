@@ -560,8 +560,34 @@ function _spreadWords(arr) {
 // ═══════════════════════════════════════════════════════
 //  EVENTOS
 // ═══════════════════════════════════════════════════════
+// Called by firebase.js when auth state changes
+function onFirebaseAuthChanged(user) {
+  _renderAuthBar(user);
+  renderMap();
+}
+
+function _renderAuthBar(user) {
+  const bar = document.getElementById('auth-bar');
+  if (!bar) return;
+  if (user) {
+    bar.innerHTML = `
+      <img class="auth-avatar" src="${user.photoURL || ''}" alt="" onerror="this.style.display='none'">
+      <span class="auth-name">${user.displayName || user.email}</span>
+      <button class="auth-btn auth-btn-out" onclick="firebaseSignOut()">Salir</button>`;
+  } else {
+    bar.innerHTML = `
+      <span class="auth-hint">Guardá tu progreso en la nube</span>
+      <button class="auth-btn auth-btn-in" onclick="firebaseSignIn()">
+        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" width="18" height="18" alt="">
+        Entrar con Google
+      </button>`;
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   srsLoad();
+  // Show logged-out state immediately; firebase.js will update once auth resolves
+  _renderAuthBar(null);
   renderMap();
 
   document.getElementById('btn-check').addEventListener('click', onCheckBtn);
