@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EnglishQuest</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     PANTALLA  MAP
+══════════════════════════════════════════ -->
+<div id="screen-map" class="screen active">
+
+  <!-- Hero header -->
+  <header class="map-hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-logo">🦜 EnglishQuest</div>
+      <div class="hero-tagline">Tu profesor de inglés personal</div>
+      <div class="hero-stats">
+        <div class="hstat">
+          <div class="hstat-val">🔥 <span id="map-streak">0</span></div>
+          <div class="hstat-lbl">Racha</div>
+        </div>
+        <div class="hstat-divider"></div>
+        <div class="hstat">
+          <div class="hstat-val">⚡ <span id="map-xp">0</span></div>
+          <div class="hstat-lbl">XP Total</div>
+        </div>
+        <div class="hstat-divider"></div>
+        <div class="hstat">
+          <div class="hstat-val">📚 <span id="map-done">0</span></div>
+          <div class="hstat-lbl">Lecciones</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Botón repaso -->
+  <div class="map-actions">
+    <button class="btn-review-big" id="btn-review">
+      <span class="review-icon">🔄</span>
+      <div class="review-text">
+        <strong>Sesión de repaso</strong>
+        <small>Reforzá lo que aprendiste</small>
+      </div>
+      <span class="review-badge" id="review-badge" style="display:none">0</span>
+    </button>
+  </div>
+
+  <div id="map-body" class="map-body"></div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PANTALLA  LECCIÓN
+══════════════════════════════════════════ -->
+<div id="screen-lesson" class="screen">
+  <div class="lesson-topbar">
+    <button class="btn-close-x" id="btn-close-lesson" title="Salir">✕</button>
+    <div class="prog-wrap">
+      <div class="round-indicator" id="round-indicator"></div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+    </div>
+    <div class="error-pill" id="error-count">✨</div>
+  </div>
+
+  <div class="ex-scroll">
+    <div id="ex-area" class="ex-area"></div>
+  </div>
+
+  <div id="feedback" class="feedback-bar" style="display:none"></div>
+
+  <div class="lesson-footer">
+    <button class="btn-check-main" id="btn-check" disabled>Verificar</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PANTALLA  RESULTADO
+══════════════════════════════════════════ -->
+<div id="screen-result" class="screen result-bg">
+  <div class="confetti-layer" id="confetti"></div>
+  <div class="result-card pop">
+    <div class="result-icon" id="res-icon">🎉</div>
+    <h2 id="res-title">¡Lección completada!</h2>
+    <p id="res-msg" class="res-msg"></p>
+    <div class="result-stats-row">
+      <div class="rstat green">
+        <div class="rstat-val" id="res-xp">+0</div>
+        <div class="rstat-lbl">⚡ XP ganados</div>
+      </div>
+      <div class="rstat blue">
+        <div class="rstat-val" id="res-accuracy">0%</div>
+        <div class="rstat-lbl">🎯 Precisión</div>
+      </div>
+      <div class="rstat red">
+        <div class="rstat-val" id="res-lives">✨</div>
+        <div class="rstat-lbl">Errores cometidos</div>
+      </div>
+    </div>
+    <div class="result-btns">
+      <button class="btn-check-main" id="btn-result-home">🗺️ Volver al mapa</button>
+      <button class="btn-outline-lg" id="btn-result-again">🔁 Repetir lección</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PANTALLA  GAME OVER
+══════════════════════════════════════════ -->
+<div id="screen-gameover" class="screen result-bg gameover-bg">
+  <div class="result-card pop">
+    <div class="result-icon">💔</div>
+    <h2>¡Sin vidas!</h2>
+    <p class="res-msg">No te rindas — la repetición es la clave para aprender en serio.</p>
+    <div class="result-btns">
+      <button class="btn-check-main" id="btn-gameover-retry">🔄 Intentar de nuevo</button>
+      <button class="btn-outline-lg" id="btn-gameover-home">🗺️ Ir al mapa</button>
+    </div>
+  </div>
+</div>
+
+<script src="curriculum.js"></script>
+<script src="srs.js"></script>
+<script src="exercises.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
