@@ -59,6 +59,10 @@ function srsLoad() {
 
 function srsSave() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(G));
+  // sync to cloud if logged in (fire-and-forget)
+  if (typeof firebaseSaveProgress === 'function' && typeof firebaseCurrentUser === 'function' && firebaseCurrentUser()) {
+    firebaseSaveProgress(G);
+  }
 }
 
 // ── Streak ───────────────────────────────────────────────
@@ -232,3 +236,17 @@ function deepClone(o) {
 
 // Exponer para que game.js acceda al estado global
 function srsState() { return G; }
+
+// ── Cloud sync helpers (usados por firebase.js) ───────────
+
+function srsGetRawState() {
+  return deepClone(G);
+}
+
+function srsLoadRawState(data) {
+  if (!data) return;
+  G = data;
+  if (!G.profile) G.profile = deepClone(DEFAULT_STATE.profile);
+  if (!G.cards)   G.cards   = {};
+  srsSave(); // persist locally too
+}
