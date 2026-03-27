@@ -196,17 +196,18 @@ function srsAdvanceLessonRound(lessonId, levelId) {
   if (newRound >= 3) {
     if (!G.profile.completedLessons.includes(lessonId))
       G.profile.completedLessons.push(lessonId);
-    // Try to unlock next level
-    const level = CURRICULUM.levels.find(l => l.id === levelId);
-    if (level && !level.comingSoon) {
-      const allDone = level.lessons.every(l =>
-        (G.profile.lessonRounds?.[l.id] || 0) >= 3
-      );
-      if (allDone) {
-        const nextId = levelId + 1;
-        if (!G.profile.unlockedLevels.includes(nextId))
-          G.profile.unlockedLevels.push(nextId);
-      }
+  }
+
+  // Unlock next level when all lessons in this level have at least round 1 done
+  const level = CURRICULUM.levels.find(l => l.id === levelId);
+  if (level && !level.comingSoon) {
+    const allPassed = level.lessons.every(l =>
+      (G.profile.lessonRounds?.[l.id] || 0) >= 1
+    );
+    if (allPassed) {
+      const nextId = levelId + 1;
+      if (!G.profile.unlockedLevels.includes(nextId))
+        G.profile.unlockedLevels.push(nextId);
     }
   }
   srsSave();
