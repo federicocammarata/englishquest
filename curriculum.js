@@ -1,6 +1,6 @@
 'use strict';
 // ─────────────────────────────────────────────────────────
-//  CURRICULUM  –  6 niveles, 34 lecciones, 340 palabras
+//  CURRICULUM  –  8 niveles, 46 lecciones, 460 palabras
 // ─────────────────────────────────────────────────────────
 
 const CURRICULUM = { levels: [
@@ -757,17 +757,265 @@ const CURRICULUM = { levels: [
 },
 
 // ══════════════════════════════════════════════════════════
-// NIVELES 7–8  (próximamente)
+// NIVEL 7 – AVANZADO  (B1+)
 // ══════════════════════════════════════════════════════════
 {
-  id:7, title:'Avanzado', subtitle:'Gramática compleja y expresiones', cefr:'B1+',
-  icon:'🏆', color:'#9e9e9e', colorDark:'#666', colorLight:'#eee',
-  comingSoon: true, lessons:[]
+  id: 7, title: 'Avanzado', subtitle: 'Gramática compleja y expresiones',
+  cefr: 'B1+', icon: '🏆',
+  color: '#ff9600', colorDark: '#c57000', colorLight: '#fff0d0',
+  lessons: [
+    // ── 7‑1 VOZ PASIVA ──────────────────────────────────
+    { id: '7-1', title: 'Voz pasiva', icon: '🔄',
+      vocabulary: [
+        { id:'v341', en:'was built',     es:'fue construido',  ex_en:'This bridge was built in 1900.',        ex_es:'Este puente fue construido en 1900.' },
+        { id:'v342', en:'was written',   es:'fue escrito',     ex_en:'This novel was written by Borges.',     ex_es:'Esta novela fue escrita por Borges.' },
+        { id:'v343', en:'is made',       es:'está hecho',      ex_en:'This table is made of wood.',           ex_es:'Esta mesa está hecha de madera.' },
+        { id:'v344', en:'was sent',      es:'fue enviado',     ex_en:'The email was sent this morning.',      ex_es:'El correo fue enviado esta mañana.' },
+        { id:'v345', en:'is known',      es:'es conocido',     ex_en:'He is known all over the world.',       ex_es:'Él es conocido en todo el mundo.' },
+        { id:'v346', en:'was stolen',    es:'fue robado',      ex_en:'My bike was stolen last night.',        ex_es:'Mi bici fue robada anoche.' },
+        { id:'v347', en:'is spoken',     es:'se habla',        ex_en:'English is spoken in many countries.',  ex_es:'El inglés se habla en muchos países.' },
+        { id:'v348', en:'was discovered',es:'fue descubierto', ex_en:'America was discovered in 1492.',       ex_es:'América fue descubierta en 1492.' },
+        { id:'v349', en:'is used',       es:'se usa',          ex_en:'This tool is used every day.',          ex_es:'Esta herramienta se usa todos los días.' },
+        { id:'v350', en:'was invented',  es:'fue inventado',   ex_en:'The telephone was invented by Bell.',   ex_es:'El teléfono fue inventado por Bell.' },
+      ],
+      sentences: [
+        { id:'s108', words:['The','book','was','written','by','Borges'],         es:'El libro fue escrito por Borges',          extra:['He','built','she','I'] },
+        { id:'s109', words:['English','is','spoken','in','many','countries'],    es:'El inglés se habla en muchos países',      extra:['was','made','used','French'] },
+        { id:'s110', words:['My','phone','was','stolen','last','night'],         es:'Mi teléfono fue robado anoche',            extra:['built','sent','bike','morning'] },
+      ]
+    },
+    // ── 7‑2 CONDICIONALES 2 Y 3 ─────────────────────────
+    { id: '7-2', title: 'Condicionales 2 y 3', icon: '🤔',
+      vocabulary: [
+        { id:'v351', en:'would',        es:'condicional (haría)', ex_en:'I would travel more if I had money.',    ex_es:'Viajaría más si tuviera dinero.' },
+        { id:'v352', en:'could have',   es:'podría haber',        ex_en:'I could have won the race.',             ex_es:'Podría haber ganado la carrera.' },
+        { id:'v353', en:'should have',  es:'debería haber',       ex_en:'You should have called me.',             ex_es:'Deberías haberme llamado.' },
+        { id:'v354', en:'would have',   es:'habría',              ex_en:'I would have helped you.',               ex_es:'Te habría ayudado.' },
+        { id:'v355', en:'if I were',    es:'si yo fuera',         ex_en:'If I were rich, I would travel.',        ex_es:'Si fuera rico, viajaría.' },
+        { id:'v356', en:'unless',       es:'a menos que',         ex_en:'Unless you study, you will fail.',       ex_es:'A menos que estudies, reprobarás.' },
+        { id:'v357', en:'provided that',es:'siempre que',         ex_en:'You can go, provided that you finish.',  ex_es:'Podés ir, siempre que termines.' },
+        { id:'v358', en:'as long as',   es:'siempre y cuando',    ex_en:'I am happy as long as you are safe.',   ex_es:'Soy feliz siempre y cuando estés bien.' },
+        { id:'v359', en:'even if',      es:'aunque',              ex_en:'I will help even if it is hard.',        ex_es:'Ayudaré aunque sea difícil.' },
+        { id:'v360', en:'in case',      es:'por si acaso',        ex_en:'Take an umbrella in case it rains.',     ex_es:'Llevá un paraguas por si llueve.' },
+      ],
+      sentences: [
+        { id:'s111', words:['I','would','travel','more','if','I','had','money'],     es:'Viajaría más si tuviera dinero',           extra:['could','should','she','we'] },
+        { id:'s112', words:['You','should','have','called','me','yesterday'],        es:'Deberías haberme llamado ayer',            extra:['would','could','I','today'] },
+        { id:'s113', words:['Take','an','umbrella','in','case','it','rains'],        es:'Llevá un paraguas por si llueve',          extra:['unless','even','provided','snows'] },
+      ]
+    },
+    // ── 7‑3 MODALES AVANZADOS ────────────────────────────
+    { id: '7-3', title: 'Modales avanzados', icon: '⚙️',
+      vocabulary: [
+        { id:'v361', en:'must',           es:'deber (obligación)',   ex_en:'You must wear a seatbelt.',              ex_es:'Debés usar el cinturón.' },
+        { id:'v362', en:'ought to',       es:'debería (consejo)',    ex_en:'You ought to see a doctor.',             ex_es:'Deberías ver a un médico.' },
+        { id:'v363', en:'might',          es:'podría (posibilidad)', ex_en:'It might rain this afternoon.',          ex_es:'Podría llover esta tarde.' },
+        { id:'v364', en:'need not',       es:'no necesitás',         ex_en:'You need not bring anything.',           ex_es:'No necesitás traer nada.' },
+        { id:'v365', en:'had better',     es:'más vale que',         ex_en:'You had better hurry up.',               ex_es:'Más vale que te apures.' },
+        { id:'v366', en:'be supposed to', es:'se supone que',        ex_en:'We are supposed to meet at noon.',       ex_es:'Se supone que nos encontramos al mediodía.' },
+        { id:'v367', en:'be able to',     es:'ser capaz de',         ex_en:'She was able to solve the problem.',     ex_es:'Ella fue capaz de resolver el problema.' },
+        { id:'v368', en:'used to',        es:'solía',                ex_en:'I used to play tennis every week.',      ex_es:'Solía jugar al tenis cada semana.' },
+        { id:'v369', en:'would rather',   es:'preferiría',           ex_en:'I would rather stay home tonight.',      ex_es:'Preferiría quedarme en casa esta noche.' },
+        { id:'v370', en:'dare',           es:'atreverse',            ex_en:'I dare you to try it!',                  ex_es:'¡Te reto a que lo intentes!' },
+      ],
+      sentences: [
+        { id:'s114', words:['You','must','wear','a','seatbelt','at','all','times'],  es:'Debés usar el cinturón en todo momento',  extra:['might','ought','should','drive'] },
+        { id:'s115', words:['She','was','able','to','solve','the','problem'],        es:'Ella fue capaz de resolver el problema',  extra:['used','had','dared','issue'] },
+        { id:'s116', words:['I','used','to','play','tennis','every','week'],         es:'Solía jugar al tenis cada semana',        extra:['would','dare','must','month'] },
+      ]
+    },
+    // ── 7‑4 ESTILO INDIRECTO ────────────────────────────
+    { id: '7-4', title: 'Estilo indirecto', icon: '💬',
+      vocabulary: [
+        { id:'v371', en:'said',      es:'dijo',      ex_en:'She said she was tired.',                   ex_es:'Dijo que estaba cansada.' },
+        { id:'v372', en:'told',      es:'le dijo',   ex_en:'He told me the truth.',                     ex_es:'Él me dijo la verdad.' },
+        { id:'v373', en:'asked',     es:'preguntó',  ex_en:'She asked if I was okay.',                  ex_es:'Ella preguntó si estaba bien.' },
+        { id:'v374', en:'reported',  es:'informó',   ex_en:'The journalist reported the news.',         ex_es:'El periodista informó la noticia.' },
+        { id:'v375', en:'mentioned', es:'mencionó',  ex_en:'He mentioned your name.',                   ex_es:'Él mencionó tu nombre.' },
+        { id:'v376', en:'claimed',   es:'afirmó',    ex_en:'She claimed to be an expert.',              ex_es:'Ella afirmó ser una experta.' },
+        { id:'v377', en:'denied',    es:'negó',      ex_en:'He denied knowing about it.',               ex_es:'Él negó saber sobre eso.' },
+        { id:'v378', en:'admitted',  es:'admitió',   ex_en:'She admitted her mistake.',                 ex_es:'Ella admitió su error.' },
+        { id:'v379', en:'explained', es:'explicó',   ex_en:'He explained the situation clearly.',       ex_es:'Él explicó la situación con claridad.' },
+        { id:'v380', en:'announced', es:'anunció',   ex_en:'The president announced new measures.',     ex_es:'El presidente anunció nuevas medidas.' },
+      ],
+      sentences: [
+        { id:'s117', words:['She','said','she','was','tired'],                       es:'Ella dijo que estaba cansada',             extra:['told','asked','happy','he'] },
+        { id:'s118', words:['He','denied','knowing','about','it'],                   es:'Él negó saber sobre eso',                 extra:['claimed','admitted','she','that'] },
+        { id:'s119', words:['The','president','announced','new','measures'],         es:'El presidente anunció nuevas medidas',     extra:['reported','mentioned','old','I'] },
+      ]
+    },
+    // ── 7‑5 VOCABULARIO ACADÉMICO ───────────────────────
+    { id: '7-5', title: 'Vocabulario académico', icon: '📖',
+      vocabulary: [
+        { id:'v381', en:'analyze',     es:'analizar',       ex_en:'We need to analyze the data.',          ex_es:'Necesitamos analizar los datos.' },
+        { id:'v382', en:'evaluate',    es:'evaluar',        ex_en:'How do you evaluate this approach?',    ex_es:'¿Cómo evaluás este enfoque?' },
+        { id:'v383', en:'hypothesis',  es:'hipótesis',      ex_en:'We need to test the hypothesis.',       ex_es:'Necesitamos probar la hipótesis.' },
+        { id:'v384', en:'evidence',    es:'evidencia',      ex_en:'There is no evidence to support this.', ex_es:'No hay evidencia que apoye esto.' },
+        { id:'v385', en:'argument',    es:'argumento',      ex_en:'His argument was very convincing.',     ex_es:'Su argumento fue muy convincente.' },
+        { id:'v386', en:'whereas',     es:'mientras que',   ex_en:'She prefers tea, whereas I prefer coffee.', ex_es:'Ella prefiere té, mientras que yo café.' },
+        { id:'v387', en:'furthermore', es:'además',         ex_en:'Furthermore, the data shows improvement.',  ex_es:'Además, los datos muestran una mejora.' },
+        { id:'v388', en:'justify',     es:'justificar',     ex_en:'Can you justify your decision?',        ex_es:'¿Podés justificar tu decisión?' },
+        { id:'v389', en:'significant', es:'significativo',  ex_en:'There was a significant difference.',   ex_es:'Hubo una diferencia significativa.' },
+        { id:'v390', en:'conclude',    es:'concluir',       ex_en:'We can conclude that it works.',        ex_es:'Podemos concluir que funciona.' },
+      ],
+      sentences: [
+        { id:'s120', words:['There','is','no','evidence','to','support','this'],     es:'No hay evidencia que apoye esto',         extra:['argument','analysis','much','prove'] },
+        { id:'s121', words:['His','argument','was','very','convincing'],             es:'Su argumento fue muy convincente',        extra:['hypothesis','evidence','she','boring'] },
+        { id:'s122', words:['We','can','conclude','that','it','works'],              es:'Podemos concluir que funciona',           extra:['analyze','justify','she','failed'] },
+      ]
+    },
+    // ── 7‑6 EXPRESIONES IDIOMÁTICAS ─────────────────────
+    { id: '7-6', title: 'Expresiones idiomáticas', icon: '🎭',
+      vocabulary: [
+        { id:'v391', en:'hit the nail on the head', es:'dar en el clavo',         ex_en:'You really hit the nail on the head.',  ex_es:'Realmente diste en el clavo.' },
+        { id:'v392', en:'break the ice',            es:'romper el hielo',         ex_en:'He told a joke to break the ice.',      ex_es:'Contó un chiste para romper el hielo.' },
+        { id:'v393', en:'under the weather',        es:'sentirse mal',            ex_en:'I am under the weather today.',         ex_es:'Hoy no me siento bien.' },
+        { id:'v394', en:'spill the beans',          es:'revelar el secreto',      ex_en:'Do not spill the beans about the party!',ex_es:'¡No reveles el secreto de la fiesta!' },
+        { id:'v395', en:'costs an arm and a leg',   es:'cuesta una fortuna',      ex_en:'That car costs an arm and a leg.',      ex_es:'Ese auto cuesta una fortuna.' },
+        { id:'v396', en:'once in a blue moon',      es:'muy de vez en cuando',    ex_en:'He visits once in a blue moon.',        ex_es:'Él visita muy de vez en cuando.' },
+        { id:'v397', en:'beat around the bush',     es:'andarse con rodeos',      ex_en:'Stop beating around the bush!',         ex_es:'¡Dejá de andarte con rodeos!' },
+        { id:'v398', en:'bite the bullet',          es:'apretar los dientes',     ex_en:'You have to bite the bullet and do it.',ex_es:'Tenés que apretar los dientes y hacerlo.' },
+        { id:'v399', en:'a blessing in disguise',   es:'un mal que viene por bien',ex_en:'Losing that job was a blessing in disguise.', ex_es:'Perder ese trabajo fue un bien disfrazado.' },
+        { id:'v400', en:'let the cat out of the bag',es:'revelar el secreto sin querer', ex_en:'He let the cat out of the bag.',  ex_es:'Él reveló el secreto sin querer.' },
+      ],
+      sentences: [
+        { id:'s123', words:['You','really','hit','the','nail','on','the','head'],    es:'Realmente diste en el clavo',             extra:['broke','spilled','missed','point'] },
+        { id:'s124', words:['He','told','a','joke','to','break','the','ice'],        es:'Contó un chiste para romper el hielo',    extra:['she','spill','bite','wall'] },
+        { id:'s125', words:['You','have','to','bite','the','bullet','and','do','it'],es:'Tenés que apretar los dientes y hacerlo', extra:['break','spill','could','try'] },
+      ]
+    },
+  ]
 },
+
+// ══════════════════════════════════════════════════════════
+// NIVEL 8 – SERIES Y CULTURA  (B2)
+// ══════════════════════════════════════════════════════════
 {
-  id:8, title:'Series', subtitle:'Inglés natural y slang', cefr:'B2',
-  icon:'🎬', color:'#ce82ff', colorDark:'#8b2be2', colorLight:'#f3e0ff',
-  comingSoon: true, lessons:[]
+  id: 8, title: 'Series y cultura', subtitle: 'Inglés natural y slang',
+  cefr: 'B2', icon: '🎬',
+  color: '#ce82ff', colorDark: '#8b2be2', colorLight: '#f3e0ff',
+  lessons: [
+    // ── 8‑1 SLANG Y COLOQUIAL ───────────────────────────
+    { id: '8-1', title: 'Slang y coloquial', icon: '😎',
+      vocabulary: [
+        { id:'v401', en:'cool',    es:'genial / copado',     ex_en:'That idea is really cool!',             ex_es:'¡Esa idea está buenísima!' },
+        { id:'v402', en:'hang out',es:'juntarse / pasarla',  ex_en:'Let us hang out this weekend.',         ex_es:'Juntémonos este fin de semana.' },
+        { id:'v403', en:'chill',   es:'relajarse / tranquilo',ex_en:'Just chill, everything is fine.',      ex_es:'Tranquilízate, todo está bien.' },
+        { id:'v404', en:'awesome', es:'increíble / genial',  ex_en:'That was an awesome concert!',          ex_es:'¡Ese fue un concierto increíble!' },
+        { id:'v405', en:'kind of', es:'más o menos / un poco',ex_en:'It was kind of boring, actually.',     ex_es:'Era un poco aburrido, la verdad.' },
+        { id:'v406', en:'no way',  es:'imposible / ni hablar',ex_en:'No way I am doing that!',              ex_es:'¡Ni hablar de que hago eso!' },
+        { id:'v407', en:'for real',es:'en serio / de verdad', ex_en:'Are you for real right now?',          ex_es:'¿Estás hablando en serio?' },
+        { id:'v408', en:'wanna',   es:'querer (informal)',    ex_en:'Do you wanna grab some food?',          ex_es:'¿Querés ir a comer algo?' },
+        { id:'v409', en:'gonna',   es:'ir a (informal)',      ex_en:'I am gonna be late, sorry.',            ex_es:'Voy a llegar tarde, disculpá.' },
+        { id:'v410', en:'stuff',   es:'cosas (informal)',     ex_en:'I need to sort out some stuff.',        ex_es:'Necesito ordenar algunas cosas.' },
+      ],
+      sentences: [
+        { id:'s126', words:["Let's",'hang','out','this','weekend'],                  es:'Juntémonos este fin de semana',           extra:['chill','gonna','wanna','week'] },
+        { id:'s127', words:['That','was','an','awesome','concert'],                  es:'Ese fue un concierto increíble',          extra:['cool','kind','stuff','party'] },
+        { id:'s128', words:['Are','you','for','real','right','now'],                 es:'¿Estás hablando en serio ahora?',         extra:['kind','gonna','wanna','sure'] },
+      ]
+    },
+    // ── 8‑2 DEBATE Y OPINIÓN ────────────────────────────
+    { id: '8-2', title: 'Debate y opinión', icon: '🗣️',
+      vocabulary: [
+        { id:'v411', en:'in my opinion',       es:'en mi opinión',              ex_en:'In my opinion, this is wrong.',            ex_es:'En mi opinión, esto está mal.' },
+        { id:'v412', en:'from my point of view',es:'desde mi punto de vista',  ex_en:'From my point of view, it is fair.',       ex_es:'Desde mi punto de vista, es justo.' },
+        { id:'v413', en:'on the other hand',   es:'por otro lado',              ex_en:'On the other hand, it could work.',        ex_es:'Por otro lado, podría funcionar.' },
+        { id:'v414', en:'to sum up',           es:'en resumen',                 ex_en:'To sum up, we need more data.',            ex_es:'En resumen, necesitamos más datos.' },
+        { id:'v415', en:'in conclusion',       es:'en conclusión',              ex_en:'In conclusion, the plan is viable.',       ex_es:'En conclusión, el plan es viable.' },
+        { id:'v416', en:'it could be argued',  es:'se podría argumentar',       ex_en:'It could be argued that prices are high.', ex_es:'Se podría argumentar que los precios son altos.' },
+        { id:'v417', en:'despite',             es:'a pesar de',                 ex_en:'Despite the rain, we had fun.',            ex_es:'A pesar de la lluvia, nos divertimos.' },
+        { id:'v418', en:'nevertheless',        es:'no obstante',                ex_en:'Nevertheless, we should try.',             ex_es:'No obstante, deberíamos intentarlo.' },
+        { id:'v419', en:'to be fair',          es:'siendo justos',              ex_en:'To be fair, she did her best.',            ex_es:'Siendo justos, ella hizo su mejor esfuerzo.' },
+        { id:'v420', en:'I strongly believe',  es:'creo firmemente',            ex_en:'I strongly believe in education.',         ex_es:'Creo firmemente en la educación.' },
+      ],
+      sentences: [
+        { id:'s129', words:['In','my','opinion','this','plan','is','wrong'],         es:'En mi opinión este plan está mal',        extra:['conclusion','view','despite','she'] },
+        { id:'s130', words:['Despite','the','rain','we','had','fun'],               es:'A pesar de la lluvia nos divertimos',     extra:['nevertheless','although','weather','they'] },
+        { id:'s131', words:['To','sum','up','we','need','more','data'],             es:'En resumen necesitamos más datos',        extra:['conclude','opinion','less','I'] },
+      ]
+    },
+    // ── 8‑3 CULTURA POP ─────────────────────────────────
+    { id: '8-3', title: 'Cultura pop', icon: '🎥',
+      vocabulary: [
+        { id:'v421', en:'plot twist',    es:'giro argumental',         ex_en:'What a plot twist at the end!',          ex_es:'¡Qué giro argumental al final!' },
+        { id:'v422', en:'binge-watch',   es:'maratonear una serie',    ex_en:'I binge-watched the whole season.',      ex_es:'Maratoneé toda la temporada.' },
+        { id:'v423', en:'spoiler',       es:'spoiler / adelanto',      ex_en:'Do not give me any spoilers!',           ex_es:'¡No me des spoilers!' },
+        { id:'v424', en:'cliffhanger',   es:'final con suspenso',      ex_en:'The season ended on a cliffhanger.',     ex_es:'La temporada terminó con suspenso.' },
+        { id:'v425', en:'blockbuster',   es:'gran éxito de taquilla',  ex_en:'That film was a total blockbuster.',     ex_es:'Esa película fue un gran éxito.' },
+        { id:'v426', en:'soundtrack',    es:'banda sonora',            ex_en:'The soundtrack is absolutely amazing.',  ex_es:'La banda sonora es absolutamente increíble.' },
+        { id:'v427', en:'sequel',        es:'secuela',                 ex_en:'The sequel was better than the original.',ex_es:'La secuela fue mejor que el original.' },
+        { id:'v428', en:'prequel',       es:'precuela',                ex_en:'They made a prequel about his childhood.',ex_es:'Hicieron una precuela sobre su infancia.' },
+        { id:'v429', en:'cast',          es:'elenco / reparto',        ex_en:'The cast includes very famous actors.',  ex_es:'El elenco incluye actores muy famosos.' },
+        { id:'v430', en:'genre',         es:'género',                  ex_en:'What genre of film do you prefer?',      ex_es:'¿Qué género de película preferís?' },
+      ],
+      sentences: [
+        { id:'s132', words:['I','binge-watched','the','whole','season','last','night'], es:'Maratoneé toda la temporada anoche',   extra:['watched','sequel','prequel','week'] },
+        { id:'s133', words:["Don't",'give','me','any','spoilers','please'],           es:'No me des spoilers por favor',           extra:['cast','genre','twist','some'] },
+        { id:'s134', words:['The','sequel','was','better','than','the','original'],   es:'La secuela fue mejor que el original',   extra:['prequel','cast','worse','film'] },
+      ]
+    },
+    // ── 8‑4 BUSINESS AVANZADO ───────────────────────────
+    { id: '8-4', title: 'Business avanzado', icon: '📈',
+      vocabulary: [
+        { id:'v431', en:'leverage',    es:'apalancar / aprovechar',   ex_en:'We should leverage our network.',        ex_es:'Deberíamos aprovechar nuestra red.' },
+        { id:'v432', en:'outsource',   es:'tercerizar',               ex_en:'We decided to outsource the design.',    ex_es:'Decidimos tercerizar el diseño.' },
+        { id:'v433', en:'stakeholder', es:'parte interesada',         ex_en:'All stakeholders must agree.',           ex_es:'Todas las partes interesadas deben acordar.' },
+        { id:'v434', en:'benchmark',   es:'punto de referencia',      ex_en:'Let us use this as a benchmark.',        ex_es:'Usemos esto como punto de referencia.' },
+        { id:'v435', en:'bottom line', es:'lo importante / resultado',ex_en:'The bottom line is we need more sales.', ex_es:'Lo importante es que necesitamos más ventas.' },
+        { id:'v436', en:'synergy',     es:'sinergia',                 ex_en:'There is great synergy between teams.',  ex_es:'Hay una gran sinergia entre los equipos.' },
+        { id:'v437', en:'scalable',    es:'escalable',                ex_en:'We need a scalable solution.',           ex_es:'Necesitamos una solución escalable.' },
+        { id:'v438', en:'pitch',       es:'presentación de venta',    ex_en:'She gave an excellent pitch.',           ex_es:'Ella hizo una presentación excelente.' },
+        { id:'v439', en:'ROI',         es:'retorno de inversión',     ex_en:'What is the ROI on this project?',       ex_es:'¿Cuál es el retorno de inversión de este proyecto?' },
+        { id:'v440', en:'turnaround',  es:'recuperación / dar vuelta',ex_en:'The company made an impressive turnaround.', ex_es:'La empresa hizo una recuperación impresionante.' },
+      ],
+      sentences: [
+        { id:'s135', words:['We','should','leverage','our','network','to','grow'],   es:'Deberíamos aprovechar nuestra red para crecer', extra:['outsource','benchmark','pitch','sell'] },
+        { id:'s136', words:['The','bottom','line','is','we','need','more','sales'],  es:'Lo importante es que necesitamos más ventas',  extra:['ROI','synergy','scalable','they'] },
+        { id:'s137', words:['She','gave','an','excellent','pitch','to','the','investors'], es:'Ella hizo una presentación excelente a los inversores', extra:['benchmark','leverage','he','ROI'] },
+      ]
+    },
+    // ── 8‑5 PHRASAL VERBS CONVERSACIÓN ──────────────────
+    { id: '8-5', title: 'Phrasal verbs · Conversación', icon: '💬',
+      vocabulary: [
+        { id:'v441', en:'catch up',       es:'ponerse al día',        ex_en:"Let's catch up over coffee.",            ex_es:'Pongámonos al día tomando un café.' },
+        { id:'v442', en:'keep up with',   es:'mantenerse al tanto de',ex_en:'It is hard to keep up with the news.',   ex_es:'Es difícil mantenerse al tanto de las noticias.' },
+        { id:'v443', en:'bring about',    es:'causar / provocar',     ex_en:'The storm brought about serious damage.',ex_es:'La tormenta provocó daños graves.' },
+        { id:'v444', en:'fall apart',     es:'desmoronarse',          ex_en:'The deal fell apart at the last minute.',ex_es:'El trato se desmoronó en el último momento.' },
+        { id:'v445', en:'get along with', es:'llevarse bien con',     ex_en:'She gets along with everyone.',          ex_es:'Ella se lleva bien con todos.' },
+        { id:'v446', en:'give up',        es:'rendirse',              ex_en:'Never give up on your dreams.',          ex_es:'Nunca te rindas con tus sueños.' },
+        { id:'v447', en:'look forward to',es:'esperar con ansias',    ex_en:'I look forward to seeing you.',          ex_es:'Espero con ansias verte.' },
+        { id:'v448', en:'run out of',     es:'quedarse sin',          ex_en:'We ran out of coffee.',                  ex_es:'Nos quedamos sin café.' },
+        { id:'v449', en:'take up',        es:'empezar un hobby',      ex_en:'She took up painting last year.',        ex_es:'Ella empezó a pintar el año pasado.' },
+        { id:'v450', en:'wind up',        es:'terminar / acabar',     ex_en:'We wound up at a great restaurant.',     ex_es:'Terminamos en un restaurante genial.' },
+      ],
+      sentences: [
+        { id:'s138', words:["Let's",'catch','up','over','coffee','this','week'],     es:'Pongámonos al día tomando un café esta semana', extra:['keep','give','fall','month'] },
+        { id:'s139', words:['Never','give','up','on','your','dreams'],               es:'Nunca te rindas con tus sueños',               extra:['fall','run','catch','hopes'] },
+        { id:'s140', words:['We','ran','out','of','coffee','this','morning'],        es:'Nos quedamos sin café esta mañana',            extra:['fell','gave','took','milk'] },
+      ]
+    },
+    // ── 8‑6 EXPRESIONES NATURALES ───────────────────────
+    { id: '8-6', title: 'Expresiones naturales', icon: '✨',
+      vocabulary: [
+        { id:'v451', en:"I'm hooked",          es:'estoy enganchado',             ex_en:"I'm hooked on this show!",              ex_es:'¡Estoy enganchado con esta serie!' },
+        { id:'v452', en:'it blew my mind',     es:'me voló la cabeza',            ex_en:'The ending blew my mind.',              ex_es:'El final me voló la cabeza.' },
+        { id:'v453', en:"I can't get enough",  es:'no puedo parar / quiero más',  ex_en:"This song — I just can't get enough!", ex_es:'Esta canción — ¡no puedo parar!' },
+        { id:'v454', en:"it's overrated",      es:'está sobredimensionado',       ex_en:"Honestly, that movie is overrated.",    ex_es:'Honestamente, esa película está sobredimensionada.' },
+        { id:'v455', en:'that escalated quickly',es:'eso escaló rápido',          ex_en:'Wow, that escalated quickly!',          ex_es:'¡Vaya, eso escaló rápido!' },
+        { id:'v456', en:'I saw that coming',   es:'me lo veía venir',             ex_en:'I totally saw that coming.',            ex_es:'Me lo veía venir completamente.' },
+        { id:'v457', en:'on the edge of my seat',es:'al borde del asiento',       ex_en:'I was on the edge of my seat.',         ex_es:'Estaba al borde del asiento.' },
+        { id:'v458', en:"I'm addicted to it",  es:'soy adicto a esto',            ex_en:"I'm totally addicted to this podcast.", ex_es:'Soy totalmente adicto a este podcast.' },
+        { id:'v459', en:"it's a must-see",     es:'es imperdible',                ex_en:"That exhibition is a must-see.",        ex_es:'Esa exposición es imperdible.' },
+        { id:'v460', en:"that's a game changer",es:'eso cambia las reglas',       ex_en:"This technology is a game changer.",    ex_es:'Esta tecnología cambia las reglas del juego.' },
+      ],
+      sentences: [
+        { id:'s141', words:['I','am','totally','hooked','on','this','show'],         es:'Estoy totalmente enganchado con esta serie', extra:['addicted','was','movie','bored'] },
+        { id:'s142', words:['The','ending','completely','blew','my','mind'],         es:'El final me voló la cabeza por completo',   extra:['hooked','overrated','bored','he'] },
+        { id:'s143', words:['I','totally','saw','that','coming'],                    es:'Me lo veía venir completamente',            extra:['blew','was','missed','she'] },
+      ]
+    },
+  ]
 },
 
 ]};
