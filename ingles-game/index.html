@@ -43,7 +43,7 @@
     </div>
   </header>
 
-  <!-- Botón repaso -->
+  <!-- Botones de acción -->
   <div class="map-actions">
     <button class="btn-review-big" id="btn-review">
       <span class="review-icon">🔄</span>
@@ -52,6 +52,14 @@
         <small>Reforzá lo que aprendiste</small>
       </div>
       <span class="review-badge" id="review-badge" style="display:none">0</span>
+    </button>
+    <button class="btn-vocab-big" id="btn-vocab-select">
+      <span class="review-icon">📚</span>
+      <div class="review-text">
+        <strong>Vocabulario libre</strong>
+        <small>Elegí un tema y practicá</small>
+      </div>
+      <span class="vocab-arrow">›</span>
     </button>
   </div>
 
@@ -129,12 +137,28 @@
   </div>
 </div>
 
+<!-- ══════════════════════════════════════════
+     PANTALLA  VOCABULARIO LIBRE
+══════════════════════════════════════════ -->
+<div id="screen-vocab-select" class="screen">
+  <div class="vocab-select-topbar">
+    <button class="btn-close-x" id="btn-close-vocab" title="Volver">✕</button>
+    <div class="vocab-select-title">📚 Vocabulario libre</div>
+    <div></div>
+  </div>
+  <div class="vocab-select-body">
+    <p class="vocab-select-sub">Elegí un tema para practicar palabras nuevas</p>
+    <div class="vocab-pack-grid" id="vocab-pack-grid"></div>
+  </div>
+</div>
+
 <!-- Firebase SDK (compat) -->
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 
 <script src="curriculum.js"></script>
+<script src="vocabpacks.js"></script>
 <script src="srs.js"></script>
 <script src="exercises.js"></script>
 <script src="firebase.js"></script>

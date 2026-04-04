@@ -199,6 +199,64 @@ function startLesson(lesson, level) {
 }
 
 // ═══════════════════════════════════════════════════════
+//  VOCAB SELECT SCREEN
+// ═══════════════════════════════════════════════════════
+function renderVocabSelect() {
+  const grid = document.getElementById('vocab-pack-grid');
+  grid.innerHTML = '';
+
+  VOCAB_PACKS.forEach(pack => {
+    const card = document.createElement('button');
+    card.className = 'vocab-pack-card';
+    card.style.setProperty('--pack-color', pack.color);
+    card.innerHTML = `
+      <span class="vpc-icon">${pack.icon}</span>
+      <div class="vpc-title">${pack.title}</div>
+      <div class="vpc-desc">${pack.desc}</div>
+      <div class="vpc-badge">${pack.vocabulary.length} palabras</div>`;
+    card.onclick = () => startVocabPack(pack);
+    grid.appendChild(card);
+  });
+
+  showScreen('screen-vocab-select');
+}
+
+// ═══════════════════════════════════════════════════════
+//  INICIAR PACK DE VOCABULARIO LIBRE
+// ═══════════════════════════════════════════════════════
+function startVocabPack(pack) {
+  const pool = getAllVocab().concat(pack.vocabulary);
+  const sv   = _shuffle([...pack.vocabulary]);
+
+  const queue = [];
+  sv.slice(0, 5).forEach(c => queue.push({ type: 'mc_es_en', data: { card: c }, retries: 0 }));
+  sv.slice(5, 10).forEach(c => queue.push({ type: 'mc_en_es', data: { card: c }, retries: 0 }));
+  sv.slice(0, 4).forEach(c => queue.push({ type: 'listen',   data: { card: c }, retries: 0 }));
+
+  session = {
+    type:    'vocab_pack',
+    pack,
+    lessonId: null, levelId: null,
+    lesson: null,   level: null,
+    pool,
+    round:    null,
+    queue:    _spreadWords(_shuffle(queue)).slice(0, 14),
+    index:    0,
+    errors:   0,
+    correct:  0,
+    xpEarned: 0,
+    phase:    'exercise',
+    introQueue: [], introIdx: 0,
+    handler: null,
+  };
+
+  srsRecordPlay();
+  showScreen('screen-lesson');
+  _updateTopbar();
+  _renderExercise();
+}
+
+// ═══════════════════════════════════════════════════════
 //  INICIAR REPASO SRS
 // ═══════════════════════════════════════════════════════
 function startReview() {
@@ -445,19 +503,28 @@ function _finishSession() {
   const roundDone = newRound !== null ? ROUND_INFO[newRound] : null;
 
   document.getElementById('res-icon').textContent  = accuracy >= 80 ? '🎉' : '👍';
-  document.getElementById('res-title').textContent =
-    roundDone ? `${roundDone.icon} ${roundDone.label} completada` : '¡Repaso completado!';
+
+  if (session.type === 'vocab_pack') {
+    document.getElementById('res-title').textContent = `${session.pack.icon} ¡Pack completado!`;
+  } else {
+    document.getElementById('res-title').textContent =
+      roundDone ? `${roundDone.icon} ${roundDone.label} completada` : '¡Repaso completado!';
+  }
+
   document.getElementById('res-accuracy').textContent = accuracy + '%';
   document.getElementById('res-xp').textContent       = '+' + session.xpEarned;
   document.getElementById('res-lives').textContent    =
     session.errors === 0 ? '✨ Perfecto' : `❌ ${session.errors} error${session.errors > 1 ? 'es' : ''}`;
   document.getElementById('res-msg').textContent = _resultMsg(accuracy, newRound);
 
-  // Mostrar "Siguiente ronda" o "Volver al mapa"
+  // Mostrar "Siguiente ronda" / "Practicar de nuevo" / ocultar
   const nextRound = newRound !== null && newRound < 3 ? newRound + 1 : null;
   const btnAgain  = document.getElementById('btn-result-again');
-  if (nextRound) {
-    btnAgain.textContent = `${ROUND_INFO[nextRound].icon} Ronda ${nextRound}/3`;
+  if (session.type === 'vocab_pack') {
+    btnAgain.textContent   = '🔁 Practicar de nuevo';
+    btnAgain.style.display = '';
+  } else if (nextRound) {
+    btnAgain.textContent   = `${ROUND_INFO[nextRound].icon} Ronda ${nextRound}/3`;
     btnAgain.style.display = '';
   } else {
     btnAgain.style.display = 'none';
@@ -510,6 +577,9 @@ function _updateTopbar() {
     if (session.type === 'lesson') {
       const ri = ROUND_INFO[session.round];
       roundEl.textContent = `${ri.icon} ${ri.label}`;
+      roundEl.style.display = '';
+    } else if (session.type === 'vocab_pack') {
+      roundEl.textContent   = `${session.pack.icon} ${session.pack.title}`;
       roundEl.style.display = '';
     } else {
       roundEl.textContent   = '🔄 Repaso';
@@ -603,15 +673,20 @@ document.addEventListener('DOMContentLoaded', () => {
     if (srsDueCount() > 0) startReview();
   });
 
+  document.getElementById('btn-vocab-select').addEventListener('click', renderVocabSelect);
+  document.getElementById('btn-close-vocab').addEventListener('click', renderMap);
+
   document.getElementById('btn-result-home').addEventListener('click', renderMap);
 
   document.getElementById('btn-result-again').addEventListener('click', () => {
-    if (session.type === 'lesson') startLesson(session.lesson, session.level);
+    if (session.type === 'lesson')     startLesson(session.lesson, session.level);
+    else if (session.type === 'vocab_pack') startVocabPack(session.pack);
     else startReview();
   });
 
   document.getElementById('btn-gameover-retry').addEventListener('click', () => {
-    if (session.type === 'lesson') startLesson(session.lesson, session.level);
+    if (session.type === 'lesson')          startLesson(session.lesson, session.level);
+    else if (session.type === 'vocab_pack') startVocabPack(session.pack);
     else startReview();
   });
 
